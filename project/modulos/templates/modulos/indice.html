@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}
+{% block title %}Site de aulas - Módulos{% endblock title %}
+{% block body %}
+<div class="container mt-3">
+    <h2>Conheça nossos módulos</h2>
+    
+    <div class="bg-body-tertiary mt-3 p-3 rounded">
+        <h3>Introdução</h3>
+        <p>Público: Iniciantes</p>
+        <p>Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra purus ipsum. Nulla facilisi.</p>
+        <ol>
+            <li><a href="/modulos/aulas/aula-inicial">Aula inicial</a></li>
+            <li><a href="/modulos/aulas/historia-do-computador">História do computador</a></li>
+        </ol>
+    </div>
+    
+    <div class="bg-body-tertiary mt-3 p-3 rounded">
+        <h3>Primeiro programa</h3>
+        <p>Público: Intermediário</p>
+        <p>Descrição: Sed viverra purus ipsum. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <ol>
+            <li><a href="/modulos/aulas/instalacao-do-ambiente">Instalação do ambiente</a></li>
+            <li><a href="/modulos/aulas/escrevendo-primeiro-programa">Escrevendo primeiro programa</a></li>
+        </ol>
+    </div>
+</div>
+{% endblock body %}
