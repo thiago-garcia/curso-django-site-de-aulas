@@ -3,7 +3,7 @@ import pytest
 
 
 @pytest.fixture
-def resp(client):
+def resp(client, db):
     resp = client.get(reverse('modulos:aula', kwargs={'slug': 'aula-inicial'}))
     return resp
 
