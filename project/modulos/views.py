@@ -8,3 +8,8 @@ def indice(request):
 def detalhe(request, slug):
     if slug == 'introducao':
         return render(request, 'modulos/modulo_detalhe.html')
+
+
+def aula(request, slug):
+    if slug == 'aula-inicial':
+        return render(request, 'modulos/aula_detalhe.html')
