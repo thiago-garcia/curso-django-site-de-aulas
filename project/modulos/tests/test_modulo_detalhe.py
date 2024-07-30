@@ -4,7 +4,7 @@ import pytest
 
 
 @pytest.fixture
-def resp(client):
+def resp(client, db):
     resp = client.get(reverse('modulos:detalhe', kwargs={'slug': 'introducao'}))
     return resp
 
