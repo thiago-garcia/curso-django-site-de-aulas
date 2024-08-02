@@ -14,5 +14,5 @@ def detalhe(request, slug):
 
 
 def aula(request, slug):
-    if slug == 'aula-inicial':
-        return render(request, 'modulos/aula_detalhe.html')
+    aula = facade.encontrar_aula(slug)
+    return render(request, 'modulos/aula_detalhe.html', {'aula': aula})

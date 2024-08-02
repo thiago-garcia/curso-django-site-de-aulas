@@ -26,3 +26,7 @@ def encontrar_modulo(slug):
 
 def listar_aulas_de_modulo_ordenadas(modulo):
     return modulo.aula_set.order_by('order').all()
+
+
+def encontrar_aula(slug):
+    return Aula.objects.get(slug=slug)
