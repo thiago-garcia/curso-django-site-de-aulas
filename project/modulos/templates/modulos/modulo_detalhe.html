@@ -1,16 +1,17 @@
 {% extends "base/base.html" %}
-{% block title %}Site de aulas - Módulos{% endblock title %}
+{% block title %}Site de aulas - {{ modulo.titulo }}{% endblock title %}
 {% block body %}
 <div class="container mt-3">
     <h2>Conheça nossos módulos</h2>
     
     <div class="bg-body-secondary mt-3 p-3 rounded">
-        <h3>Introdução</h3>
-        <p>Público: Iniciantes</p>
-        <p>Descrição: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed viverra purus ipsum. Nulla facilisi.</p>
+        <h3>{{ modulo.titulo }}</h3>
+        <p>Público: {{ modulo.publico }}</p>
+        <p>Descrição: {{ modulo.descricao }}.</p>
         <ol>
-            <li><a href="/modulos/aulas/aula-inicial">Aula inicial</a></li>
-            <li><a href="/modulos/aulas/historia-do-computador">História do computador</a></li>
+            {% for aula in aulas %}
+                <li><a href="{{ aula.get_absolute_url }}">{{ aula.titulo }}</a></li>
+            {% endfor %}
         </ol>
     </div>
 </div>

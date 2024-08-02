@@ -18,3 +18,11 @@ def listar_modulos_com_aulas():
     """
     aulas_ordenadas = Aula.objects.order_by('order').all()
     return Modulo.objects.order_by('order').prefetch_related(Prefetch('aula_set', aulas_ordenadas, 'aulas')).all()
+
+
+def encontrar_modulo(slug):
+    return Modulo.objects.get(slug=slug)
+
+
+def listar_aulas_de_modulo_ordenadas(modulo):
+    return modulo.aula_set.order_by('order').all()
