@@ -3,6 +3,13 @@
 {% block body %}
 <div class="container mt-3">
     <div class="bg-body-secondary mt-3 p-3 rounded text-center">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'base:home' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ aula.modulo.get_absolute_url }}">{{ aula.modulo.titulo }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ aula.titulo }}</li>
+            </ol>
+        </nav>          
         <h3>{{ aula.titulo }}</h3>
         <hr>
         {{ aula.embed|safe }}
