@@ -1,0 +1,46 @@
+{% extends "base/base.html" %}
+{% block title %}Site de aulas - Faça o seu login{% endblock title %}
+{% block body %}
+
+<div class="container mt-4">
+    <div class="bg-body-secondary mt-3 p-3 rounded text-center">
+        {% if form.errors %}
+        <p>Seu nome de usuário e senha não correspondem. Por favor, tente novamente.</p>
+        {% endif %}
+
+        {% if next %}
+        {% if user.is_authenticated %}
+        <p>Sua conta não tem acesso a esta página. Para prosseguir,
+            faça login com uma conta que tenha acesso.</p>
+        {% else %}
+        <p>Faça login para ver esta página.</p>
+        {% endif %}
+        {% endif %}
+
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-12 mb-1">
+                    {{ form.username.label_tag }}
+                </div>
+                <div class="col-12 mb-1">
+                    {{ form.username }}
+                </div>
+                <div class="col-12 mb-1">
+                    {{ form.password.label_tag }}
+                </div>
+                <div class="col-12 mb-1">
+                    {{ form.password }}
+                </div>
+                <div class="col-12 mb-1">
+                    <input type="submit" value="login">
+                </div>
+            </div>
+            <input type="hidden" name="next" value="{{ next }}">
+        </form>
+        {# Assumes you set up the password_reset view in your URLconf #}
+        <p><a href="{% url 'password_reset' %}">Esqueceu sua senha?</a></p>
+
+    </div>
+</div>
+{% endblock body %}
