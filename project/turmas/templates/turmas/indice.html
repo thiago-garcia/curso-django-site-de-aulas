@@ -1,0 +1,20 @@
+{% extends "base/base.html" %}
+{% block title %}Site de aulas - Turmas{% endblock title %}
+{% block body %}
+<div class="container mt-3">
+    <h2>Confira nossas turmas</h2>
+    
+    {% for modulo in modulos %}
+        <div class="bg-body-secondary mt-3 p-3 rounded">
+            <h3>{{ modulo.titulo }}</h3>
+            <p>Público: {{ modulo.publico }}</p>
+            <p>Descrição: {{ modulo.descricao }}.</p>
+            <ol>
+                {% for aula in modulo.aulas %}
+                    <li><a href="{{ aula.get_absolute_url }}">{{ aula.titulo }}</a></li>
+                {% endfor %}
+            </ol>
+        </div>
+    {% endfor %}
+</div>
+{% endblock body %}

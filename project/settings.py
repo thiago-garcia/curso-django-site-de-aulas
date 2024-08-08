@@ -51,6 +51,7 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 INSTALLED_APPS = [
     'project.base',
     'project.modulos',
+    'project.turmas',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
