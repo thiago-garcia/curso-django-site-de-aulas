@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('project.base.urls')),
     path('modulos/', include('project.modulos.urls')),
     path('contas/', include('django.contrib.auth.urls')),
+    path('turmas/', include('project.turmas.urls')),
 ]
 
 
