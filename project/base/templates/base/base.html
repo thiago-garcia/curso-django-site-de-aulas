@@ -22,13 +22,16 @@
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Módulos</a>
                             <ul class="dropdown-menu">
                                 {% for modulo in MODULOS %}
-                                <li>
-                                    <a class="dropdown-item" href="{{ modulo.get_absolute_url }}">
-                                        {{ modulo.titulo }}
-                                    </a>
-                                </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ modulo.get_absolute_url }}">
+                                            {{ modulo.titulo }}
+                                        </a>
+                                    </li>
                                 {% endfor %}
                             </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="{% url 'turmas:indice' %}">Turmas</a>
                         </li>
                     </ul>
                     {% if user.is_authenticated %}
