@@ -16,8 +16,19 @@ def aula(modulo):
 
 
 @pytest.fixture
-def resp(client, modulo, aula):
+def resp_nao_logado(client, aula):
     resp = client.get(reverse('modulos:aula', kwargs={'slug': aula.slug}))
+    return resp
+
+
+def test_aula_sem_login(resp_nao_logado):
+    assert resp_nao_logado.status_code == 302
+    assert resp_nao_logado.url.startswith(reverse('login'))
+
+
+@pytest.fixture
+def resp(client_usuario_logado, aula):
+    resp = client_usuario_logado.get(reverse('modulos:aula', kwargs={'slug': aula.slug}))
     return resp
 
 
