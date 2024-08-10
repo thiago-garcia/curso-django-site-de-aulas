@@ -4,16 +4,11 @@
 <div class="container mt-3">
     <h2>Confira nossas turmas</h2>
     
-    {% for modulo in modulos %}
+    {% for turma in turmas %}
         <div class="bg-body-secondary mt-3 p-3 rounded">
-            <h3>{{ modulo.titulo }}</h3>
-            <p>Público: {{ modulo.publico }}</p>
-            <p>Descrição: {{ modulo.descricao }}.</p>
-            <ol>
-                {% for aula in modulo.aulas %}
-                    <li><a href="{{ aula.get_absolute_url }}">{{ aula.titulo }}</a></li>
-                {% endfor %}
-            </ol>
+            <h3 class="mb-3">{{ turma.nome }}</h3>
+            <p>Data de inicio: {{ turma.inicio|date:"d/m/Y" }}</p>
+            <p>Data de término: {{ turma.fim|date:"d/m/Y" }}.</p>
         </div>
     {% endfor %}
 </div>
